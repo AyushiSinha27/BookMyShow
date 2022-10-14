@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Movie_Entity.User>
+<div>
+    <a asp-controller="User" asp-action="UserEntry">User Entry</a>
+
+</div>
+
+
+<div class="row">
+    <div class="col-12 ">
+        <h3>User's</h3>
+        <hr />
+        <table class="table table-light table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>User Id</th>
+                    <th>User Name</th>
+                    <th>User Email</th>
+                    <th>User Age</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in Model)
+                {
+                    <tr>
+                        <td>@user.UserId</td>
+                        <td>@user.Name</td>
+                        <td>@user.Email</td>
+                        <td>@user.age</td>
+                        <td><a asp-controller="User" asp-action="EditUser" asp-route-UserId=@user.UserId>Edit</a></td>
+                        <td><a asp-controller="User" asp-action="DeleteUser" asp-route-UserId=@user.UserId>Delete</a></td>
+                    </tr>
+                }
+        </table>
+    </div>
+
+</div>
+

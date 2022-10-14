@@ -1,0 +1,39 @@
+﻿
+@model IEnumerable<Movie_Entity.Theater>
+
+<div>
+    <a asp-controller="Theater" asp-action="TheaterEntry">Theater Entry</a>
+
+</div>
+
+<div class="row">
+    <div class="col-12 ">
+        <h3>Theater's</h3>
+        <hr />
+        <table class="table table-light table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Theater Id</th>
+                    <th>Theater Name</th>
+                    <th>Theater Address</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var theater in Model)
+                {
+                    <tr>
+                        <td>@theater.Id</td>
+                        <td>@theater.Name</td>
+                        <td>@theater.Address</td>
+                    
+                        <td><a asp-controller="Theater" asp-action="EditTheater" asp-route-TheaterId=@theater.Id>Edit</a></td>
+                        <td><a asp-controller="Theater" asp-action="DeleteTheater" asp-route-TheaterId=@theater.Id>Delete</a></td>
+                    </tr>
+                }
+        </table>
+    </div>
+
+</div>
+

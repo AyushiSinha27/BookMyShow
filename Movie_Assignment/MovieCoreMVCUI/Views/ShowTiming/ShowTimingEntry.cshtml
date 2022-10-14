@@ -1,0 +1,45 @@
+﻿@model Movie_Entity.Showtiming
+<div>
+    <a asp-controller="ShowTiming" asp-action="Index">Index</a>
+
+</div>
+
+<form method="post" enctype="multipart/form-data">
+    <h2>Show Timing</h2><hr />
+    <div class="form-group">
+        <label>Theater Id</label>
+        <input type="text" asp-for="TheaterId" class="form-control"
+               placeholder="enter theater id" required />
+    </div>
+    <div class="form-group">
+        <label>Movie Id</label>
+        <input type="text" asp-for="MovieId" class="form-control"
+               placeholder="enter movie id" required />
+    </div>
+    <div class="form-group">
+        <label>ShowTime</label>
+        <input type="datetime-local" asp-for="ShowTime" class="form-control"
+               placeholder="enter showtime" required />
+    </div>
+    <input type="submit" value="Save" class="btn btn-outline-success" />
+    <input type="button" value="Reset" class="btn btn-outline-secondary" />
+    <hr />
+    @if (ViewBag.Status == "Ok")
+    {
+        <div class="alert alert-success">
+            @ViewBag.message;
+        </div>
+    }
+
+    else if (ViewBag.Status == "Error")
+    {
+        <div class="alert alert-danger">
+            @ViewBag.message;
+        </div>
+    }
+</form>
+
+
+
+
+

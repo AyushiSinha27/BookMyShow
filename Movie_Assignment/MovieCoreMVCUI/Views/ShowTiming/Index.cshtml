@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Movie_Entity.Showtiming>
+
+<div>
+    <a asp-controller="ShowTiming" asp-action="ShowTimingEntry">ShowEntry</a>
+
+</div>
+
+
+
+
+
+<div class="row">
+    <div class="col-12 ">
+        <h3>ShowTiming's</h3>
+        <hr />
+        <table class="table table-light table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>ShowTime Id</th>
+                    <th>Movie Id</th>
+                    <th>Theater Id</th>
+                    <th>Show-Time</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var show in Model)
+                {
+                    <tr>
+                        <td>@show.Id</td>
+                        <td>@show.MovieId</td>
+                        <td>@show.TheaterId</td>
+                        <td>@show.ShowTime</td>
+
+                        <td><a asp-controller="ShowTiming" asp-action="EditShowtiming" asp-route-ShowId=@show.Id>Edit</a></td>
+                        <td><a asp-controller="ShowTiming" asp-action="DeleteShowtiming" asp-route-ShowId=@show.Id>Delete</a></td>
+                    </tr>
+                }
+        </table>
+    </div>
+
+</div>

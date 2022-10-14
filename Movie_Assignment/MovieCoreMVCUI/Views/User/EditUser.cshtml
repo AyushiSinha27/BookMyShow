@@ -1,0 +1,47 @@
+﻿@model Movie_Entity.User
+
+
+<div>
+    <a asp-controller="User" asp-action="Index">User Entry</a>
+
+</div>
+
+<form method="post" enctype="multipart/form-data">
+    <h2>User Entry</h2><hr />
+    <div class="form-group">
+        <label>User</label>
+        <input type="text" asp-for="UserId" class="form-control"
+               placeholder="enter user Id" required />
+    </div>
+    <div class="form-group">
+        <label>User</label>
+        <input type="text" asp-for="Name" class="form-control"
+               placeholder="enter user name" required />
+    </div>
+    <div class="form-group">
+        <label>User age</label>
+        <input type="text" asp-for="age" class="form-control"
+               placeholder="enter user age" required />
+    </div>
+    <div class="form-group">
+        <label>User Email</label>
+        <input type="text" asp-for="Email" class="form-control"
+               placeholder="enter user email" required />
+    </div>
+    <input type="submit" value="Save" class="btn btn-outline-success" />
+    <input type="button" value="Reset" class="btn btn-outline-secondary" />
+    <hr />
+    @if (ViewBag.Status == "Ok")
+    {
+        <div class="alert alert-success">
+            @ViewBag.message;
+        </div>
+    }
+
+    else if (ViewBag.Status == "Error")
+    {
+        <div class="alert alert-danger">
+            @ViewBag.message;
+        </div>
+    }
+</form>
